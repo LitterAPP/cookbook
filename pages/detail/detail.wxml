@@ -1,0 +1,111 @@
+<view class='banner'>
+  <image mode='widthFix' style='width:{{W}}px;' src='{{cookBook.cookBook.pic}}'></image>
+  <view class='title'>
+    <view class='title1'>
+      <view>
+        <text class='name'>{{cookBook.cookBook.name}}</text>
+        <view class='tag' style='width:{{W-20}}px;'>
+          <block wx:for='{{cookBook.tags}}' wx:key='{{id}}'>
+            <text class='tag-text' style='color:#353535;'>{{item.tag}}</text>
+          </block>
+        </view>
+      </view>
+      <view>
+      </view>
+    </view>
+  </view>
+  <view class='number1'>
+    <text>点赞：{{favor}}</text>    
+  </view>
+  <view class='number2'>
+   <text>浏览：{{cookBook.view}}</text> 
+  </view>
+</view>
+
+<view class='params'>
+  <view class='params2'>
+    <view class='params1'>
+      <image src='/images/rs.png'></image>
+      <text>适合人数</text>
+    </view>
+    <text>{{cookBook.cookBook.peoplenum}}</text>
+  </view>
+  <view class='params2'>
+    <view class='params1'>
+      <image src='/images/pre.png'></image>
+      <text>准备时长</text>
+    </view>
+    <text>{{cookBook.cookBook.preparetime}}</text>
+  </view>
+  <view class='params2'>
+    <view class='params1'>
+      <image src='/images/time.png'></image>
+      <text>烹饪时长</text>
+    </view>
+    <text>{{cookBook.cookBook.cookingtime}}</text>
+  </view>
+</view>
+
+<swiper style='height:270px;' indicator-dots="{{true}}" indicator-color="rgba(184,129,27,0.3)" indicator-active-color="rgba(184,129,27,0.8)" circular='{{true}}' duration="{{500}}">
+  <swiper-item>
+    <view class='precess'>
+      <text class='precess1'>图文教学（向左滑开始）</text>
+      <image mode='widthFix' style='width:300px;' src='/images/twjx_banner.png'></image>
+      
+    </view>
+  </swiper-item>
+
+  <swiper-item wx:for='{{cookBook.process}}' wx:key='{{id}}'>
+    <view class='precess'>
+      <text class='precess1'>第{{item.step}}步</text>
+      <image mode='widthFix' style='width:300px;' src='{{item.pic}}'></image>
+      <text class='precess2' decode='{{true}}'>{{item.pcontent}}</text>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class='material'>
+  <view class='material2'>
+    <text>— </text>
+    <text>食材准备</text>
+    <text> —</text>
+  </view>
+  <view class='material1' wx:for='{{cookBook.material}}' wx:key='{{id}}'>
+    <text>{{item.mname}}</text>
+    <text>{{item.amount}}</text>
+  </view>
+</view>
+
+
+<view class='material'>
+  <view class='material2' style='margin-top:10px;'>
+    <text>— </text>
+    <text>菜品点评</text>
+    <text> —</text>
+  </view>
+  <view class='desc'>
+    <text decode='{{true}}'>
+&nbsp;&nbsp;&nbsp;&nbsp;{{cookBook.cookBook.content}}
+</text>
+    <!-- <image src='/images/sqj.png'></image>-->
+  </view>
+</view>
+
+
+<view class='blank'></view>
+
+<view class='fix-bottom'>
+  <view class='wrap-button' bindtap='addToMenu'>
+    <image src='/images/gwc_icon.png'></image>
+    <text>加入菜单</text>
+  </view>
+  <view class='wrap-button' bindtap='favor'>
+    <image src='/images/zan.png'></image>
+    <text>点赞</text>
+  </view>
+  <view class='wrap-button'>
+    <image src='/images/zf.png'></image>
+    <button plain='{{true}}' open-type='share'></button>
+    <text>分享好友</text>
+  </view>
+</view>

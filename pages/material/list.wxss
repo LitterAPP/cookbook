@@ -1,0 +1,17 @@
+
+.menu-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 30px;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+.menu-item image{
+  height: 30px;
+  width: 30px;
+}
+.menu-item text{
+  color: #515151;
+  font-size: 14px;
+}

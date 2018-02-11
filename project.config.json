@@ -1,0 +1,136 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.7.3",
+	"appid": "wx1aebecae797c6598",
+	"projectname": "cookbook",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 16,
+			"list": [
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/space/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的菜单",
+					"pathName": "pages/menu/menu",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商城首页",
+					"pathName": "pages/shop/index",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "商品详情",
+					"pathName": "pages/shop/detail",
+					"query": "productId=PRO-20180110182718-115639&isPreview=1"
+				},
+				{
+					"id": 15,
+					"name": "商品支付",
+					"pathName": "pages/shop/pay",
+					"query": "payparams=%7B%22productId%22%3A%22product_2%22%2C%22productName%22%3A%22%E6%96%B0%E7%96%86%E5%92%8C%E7%94%B0%E5%A4%A7%E6%9E%A3%20%E6%AD%A3%E5%AE%97%E5%92%8C%E7%94%B0%E5%85%B5%E5%9B%A2%E8%B4%A72017%E5%B9%B4%E8%B4%A7%E5%8F%91%E8%B4%A7%E4%B8%AD~~%E6%96%B0%E7%96%86%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E7%9B%B4%E5%8F%91%EF%BC%812017%E5%B9%B4%E9%87%87%E6%BA%90%E5%AE%9D%E9%86%89%E5%80%BC%E5%BE%97%E8%B4%AD%E4%B9%B0%E7%9A%84%E7%88%86%E6%AC%BE%EF%BC%81%E6%B2%A1%E6%9C%89%E4%B9%8B%E4%B8%80%EF%BC%81%22%2C%22together%22%3A%221%22%2C%22showPrice%22%3A%22186.65%22%2C%22buyNumber%22%3A1%2C%22groups%22%3A%7B%22groupTogetherPrice%22%3A%22139.99%22%2C%22groupIndex%22%3A2%2C%22groupId%22%3A%22group_2%22%2C%22groupName%22%3A%22%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84B%E3%80%903%E4%BB%BD7%E6%8A%98%E3%80%91%E3%80%901.5%E6%96%A4%E3%80%91%22%2C%22groupImage%22%3A%22https%3A%2F%2F91loving.cn%2Fproxytastyoss%2F934afaec636945d09450de7473c8a938%3FExpires%3D1513230239%26OSSAccessKeyId%3DHW77gOwWnQiwQIuB%26Signature%3DhdRGxCWcRMNbGWIpSmrXcfDL4WU%253D%22%2C%22groupPrice%22%3A%22186.65%22%7D%7D"
+				},
+				{
+					"id": 16,
+					"name": "支付结果也",
+					"pathName": "pages/shop/payresult",
+					"query": "payResult=1&orderNo=QL-20171214183627-189118"
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/shop/orderlist",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "订单详情",
+					"pathName": "pages/shop/orderdetail",
+					"query": "orderId=QL-20171216103620-181644",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "我的钱包",
+					"pathName": "pages/space/wallet",
+					"query": "",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "商品管理",
+					"pathName": "pages/shopmng/product",
+					"query": "productId=PRO-20180112100251-190098"
+				},
+				{
+					"id": -1,
+					"name": "我的商品",
+					"pathName": "pages/shopmng/manageproduct",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的商品列表",
+					"pathName": "pages/shopmng/manageproduct",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请入驻",
+					"pathName": "pages/shopmng/apply",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/shop/orderlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发货页",
+					"pathName": "pages/shopmng/deliver",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "测试",
+					"pathName": "pages/test/test"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,11 @@
+<view class='class-table'>
+  <view class='class-row' wx:for='{{list}}' wx:key='{{id}}'>
+    <view wx:for='{{item}}' wx:key='{{id}}' wx:for-item='childClass' class='class-cl' data-classname='{{childClass.name}}'  data-classpid='{{childClass.parentId}}'  data-classcid='{{childClass.classId}}' style='width:{{W/5-4}}px;' hover-class='click-hover' bindtap='classClick'> 
+      <text style='padding:2px;'>{{childClass.name}}</text>
+    </view> 
+  </view>
+</view>
+
+<view wx:if='{{list.length==0}}'  class='bottom-tips'>
+ <text style='color:#ccc;font-size:15px; '>该分类还没有二级分类，请查看别的分类吧~</text>
+</view>

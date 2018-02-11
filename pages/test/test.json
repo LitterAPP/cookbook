@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "bannerupload": "/components/bannerupload/bannerupload",
+    "autocomplete":"/components/autocomplete/autocomplete",
+    "autocompleteadv": "/components/autocomplete/autocompleteadv",
+    "dynamiciput":"/components/dynamiciput/dynamiciput",
+    "group": "/components/productgroup/group"
+  }
+}

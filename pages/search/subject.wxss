@@ -1,0 +1,28 @@
+
+
+.ai-recmd-more{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 10px;
+  margin-bottom: 10px;
+}
+ 
+.ai-recmd-more-list-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:flex-start;
+  margin: 0px 10px;
+  margin-bottom:5px; 
+}
+.ai-recmd-more-list-content image{
+   border-radius: 5px;
+   margin: 5px;
+}
+.ai-recmd-more-list-content-1{
+  display: flex;
+  flex-direction:column; 
+  padding: 5px 10px;
+}

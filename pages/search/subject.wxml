@@ -1,0 +1,31 @@
+<view  class='ai-recmd'>
+  <block wx:for='{{list}}' wx:key='{{id}}'>
+    <view class='ai-recmd-more-list'>
+      <view bindtap='cookBookDetail' class='ai-recmd-more-list-content' data-cookbookid='{{item.bookId}}' hover-class='click-hover'>
+        <image mode='aspectFit' style='width:80px;height:80px;' src='{{item.pic}}'></image>
+        <view class='ai-recmd-more-list-content-1'>
+          <text class='name-text'>{{item.name}}</text>
+          <view class='tag' style='width:{{W-145}}px;'>
+            <block wx:for='{{item.tags}}' wx:for-item='tag' wx:key='{{id}}'>
+              <text class='tag-text'>{{tag.tag}}</text>
+            </block>
+          </view>
+        </view>
+        <image style='width:30px;height:30px;  position: absolute;right:10px;' src='/images/arrow-right.png'></image>
+      </view>
+    </view>
+  </block>
+</view>
+
+
+<view class='blank'></view>
+
+<view class='fix-bottom'> 
+  <view class='wrap-button'>
+    <image src='/images/zf.png'></image>
+    <button plain='{{true}}' open-type='share'></button>
+    <text>分享好友</text>
+  </view>
+</view>
+
+<web-view wx:if='{{webview}}' src="{{weburl}}"></web-view>

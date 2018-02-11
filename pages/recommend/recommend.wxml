@@ -1,0 +1,78 @@
+<view class='search' catchtap='gotoSearch'>
+  <view class='search-icon'>
+    <image src='/images/search_bar_0.png'></image>
+  </view>
+  <input style='width:{{W-100}}px;' placeholder='搜索你想要的食谱' disabled='{{true}}' value='{{key}}'></input>
+  <view  class='clear-icon'>
+    <image src='/images/clear.png'></image>
+  </view>
+</view>
+
+<view class='recmd-bytime'>
+  <view class='recmd-bytime-title'>
+    <text class='nav-title-text'>{{topData.desc}}时间</text>
+    <view bindtap='reflushRecmdByTime' class='recmd-bytime-more' hover-class='click-hover'>
+       <text class='right-reflush-text'>换一批</text>
+      <image src='/images/reflush.png'></image>
+    </view>
+  </view>
+  <swiper style='height:220px;' indicator-dots="{{true}}" indicator-color="rgba(184,129,27,0.3)" indicator-active-color="rgba(184,129,27,0.8)" circular='{{true}}' autoplay="{{true}}" interval="{{5000}}" duration="{{300}}">
+    <block wx:for="{{[0,1,2,3,4]}}" wx:for-item="i" wx:key='{{id}}'>
+    <swiper-item>
+      <view class='swiper-item'>
+        <view class='swiper-item-content' bindtap='cookBookDetail'  data-cookbookid='{{topData.list[i*2].bookId}}' hover-class='click-hover'>
+          <image   mode='widthFix' style='width:{{W/2-10}}px' src='{{topData.list[i*2].pic}}'></image>
+          <text class='name-text'>{{topData.list[i*2].name}}</text>
+          <view class='tag' style='width: {{W/2-10}}px'>
+            <block wx:for='{{topData.list[i*2].tags}}' wx:key='{{id}}'>
+            <text class='tag-text'>{{item.tag}}</text>
+            </block> 
+          </view>
+        </view>
+        <view class='swiper-item-content'  bindtap='cookBookDetail'  data-cookbookid='{{topData.list[i*2+1].bookId}}' hover-class='click-hover'>
+          <image    mode='widthFix' style='width:{{W/2-10}}px' src='{{topData.list[i*2+1].pic}}'></image>
+          <text class='name-text'>{{topData.list[i*2+1].name}}</text>
+          <view class='tag' style='width: {{W/2-10}}px'>
+            <block wx:for='{{topData.list[i*2+1].tags}}' wx:key='{{id}}'>
+            <text class='tag-text'>{{item.tag}}</text>
+            </block> 
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='ai-recmd'>
+  <view class='ai-recmd-more'>
+    <text class='nav-title-text'>智能推荐</text>
+    <view  bindtap='reflushRecmdByAi' hover-class='click-hover' class='reflush'>
+      <text class='right-reflush-text'>换一批</text>
+      <image src='/images/reflush.png'></image>
+    </view>
+  </view>
+  <block wx:for='{{aiData.list}}' wx:key='{{id}}'>
+  <view class='ai-recmd-more-list'>
+    <view bindtap='cookBookDetail'   class='ai-recmd-more-list-content' data-cookbookid='{{item.bookId}}'  hover-class='click-hover'>
+      <image  mode='aspectFit' style='width:80px;height:80px;' src='{{item.pic}}'></image>
+      <view class='ai-recmd-more-list-content-1'>
+        <text class='name-text'>{{item.name}}</text>
+        <view class='tag' style='width:{{W-145}}px;'>
+          <block wx:for='{{item.tags}}' wx:for-item='tag' wx:key='{{id}}'>
+          <text class='tag-text'>{{tag.tag}}</text>
+          </block> 
+        </view>
+        <view class='fovar'>
+          <image src='/images/zan.png'></image>
+          <text>{{item.favor}}</text>
+        </view>
+        <view class='fovar'>
+          <image src='/images/view.png'></image>
+          <text>{{item.view}}</text>
+        </view>
+      </view>
+      <image style='width:30px;height:30px;  position: absolute;right:10px;' src='/images/arrow-right.png'></image>
+    </view>
+  </view> 
+  </block>
+</view>

@@ -1,0 +1,54 @@
+<view class='class-table'>
+  <view class='class-row' style='height:{{W/4}}px;'>
+    <view class='class-cl' style='width:{{W/4-5}}px;' hover-class='click-hover' data-classpid='1' data-classpname='功效' bindtap='classClick'>
+      <image src='/images/icon_xg.png'></image>
+      <text>功效</text>
+    </view>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='113' data-classpname='人群'  bindtap='classClick'>
+      <image src='/images/icon_rq.png'></image>
+      <text>人群</text>
+    </view>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='144' data-classpname='疾病'  bindtap='classClick'>
+      <image src='/images/icon_jk.png'></image>
+      <text>疾病</text>
+    </view>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='213' data-classpname='体质'  bindtap='classClick'>
+      <image src='/images/icon_tz.png'></image>
+      <text>体质</text>
+    </view>
+  </view>
+
+  <view class='class-row'  style='height:{{W/4}}px;'>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='223' data-classpname='菜系'  bindtap='classClick'>
+      <image src='/images/icon_cx.png'></image>
+      <text>菜系</text>
+    </view>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='269' data-classpname='小吃'  bindtap='classClick'>
+      <image src='/images/icon_xc.png'></image>
+      <text>小吃</text>
+    </view>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='301' data-classpname='菜品'  bindtap='classClick'>
+      <image src='/images/icon_cp.png'></image>
+      <text>菜品</text>
+    </view>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='390' data-classpname='口味'  bindtap='classClick'>
+      <image src='/images/icon_wd.png'></image>
+      <text>口味</text>
+    </view>
+  </view>
+
+  <view class='class-row'  style='height:{{W/4}}px;'>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='453' data-classpname='工艺'  bindtap='classClick'>
+      <image src='/images/icon_gy.png'></image>
+      <text>工艺</text>
+    </view>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='524' data-classpname='厨具'  bindtap='classClick'>
+      <image src='/images/icon_gj.png'></image>
+      <text>厨具</text>
+    </view>
+    <view class='class-cl' style='width:{{W/4-5}}px;'  hover-class='click-hover' data-classpid='561' data-classpname='场景'  bindtap='classClick'>
+      <image src='/images/icon_cj.png'></image>
+      <text>场景</text>
+    </view>
+  </view>
+</view>

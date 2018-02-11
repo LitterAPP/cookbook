@@ -1,0 +1,18 @@
+<!--pages/test/test.wxml  /images/delete.png'
+<bannerupload bind:upload-banner='uploadBanner'  upload-button-text='点击上传Banner' bind:delete-banner='deleteBanner'>
+</bannerupload>
+<view class='select-list'>
+  <text>select:</text>
+  <autocompleteadv class='select-list-box' mode='static' placeholderText='请输入商品分类' source='{{source}}' bind:item-selected='itemSelected' selecteds='{{[2]}}'></autocompleteadv>
+
+</view>
+
+<view class='dynamiciput' >
+  <dynamiciput inputs='{{inputs}}' bind:item-changed='itemCanged' place-holder-text='请输入点什么' class='dynamiciput-item'></dynamiciput>
+</view>
+
+<view class='group' >
+  <group inputs='{{inputs}}' bind:item-changed='groupChanged' place-holder-text='请输入点什么' class='group-item'></group>
+</view>
+-->
+

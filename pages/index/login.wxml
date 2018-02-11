@@ -1,0 +1,24 @@
+  <view class='logo'>
+    <image animation="{{animationData}}" src='/images/login-logo.png'></image>
+  </view>  
+  <view class='line' animation="{{animationDataLine}}" >
+  <text>一个懂您的菜谱</text>
+  </view>
+  <form bindsubmit='login'>
+    <view class='login-input'>
+      <view class='mobile'>
+        <input name='mobile' bindblur='getMobileValue' type='text' placeholder='请输入手机号码' maxlength='11' ></input>
+      </view>
+      <view class='smscode'>
+      <input name='smsCode' type='text' placeholder='请输入短信验证码' maxlength='6' ></input>
+      <text wx:if='{{countDown==0}}' bindtap='sendSmsCode'>获取验证码</text>
+      <text wx:else bindtap='sendSmsCode'>({{countDown}}秒)</text>
+      </view>
+    </view>
+    <view class='login-button'>
+      <button type='default' style='color:#FF8000;'  size='default' form-type='submit'>登录</button>
+    </view>
+  </form>
+  <view class='login-bottom'>
+  <text>尝尽天下美食，也不如我懂您</text>
+  </view>

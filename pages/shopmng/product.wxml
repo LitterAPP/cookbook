@@ -1,0 +1,182 @@
+<block wx:if='{{showpage}}'>
+  <form bindsubmit='productFormSumbit' report-submit>
+    <view class='container'>
+      <view class='card'>
+        <view class='card-title'>
+          <text>商品类型</text>
+        </view>
+        <view class='card-content' wx:if='{{componetns===1}}'>
+          <autocompleteadv   required='true' selectedId="{{postData.productType}}" style='width:{{W}}px;' mode='remote' placeholderText='请选择类型' source-url='{{produtTypeUrl}}' bind:item-selected='bindProductTypeSelected'></autocompleteadv>
+        </view>
+      </view>
+
+
+      <view class='card'>
+        <view class='card-title'>
+          <text>商品标题</text>
+        </view>
+        <view class='card-content'>
+          <input name='title' type='text' value='{{postData.title}}' maxlength='200' placeholder='请输入商品标题（限200字）' style='width:{{W}}px;'></input>
+        </view>
+      </view>
+
+      <view class='card' wx:if='{{productTypes[productTypeValue].value == 0}}'>
+        <view class='card-title'>
+          <text>商品库存</text>
+        </view>
+        <view class='card-content'>
+          <input name='store' type='number' value='{{postData.store}}' maxlength='10' placeholder='请输入库存' style='width:{{W}}px;'></input>
+        </view>
+      </view>
+
+      <view class='card'>
+        <view class='card-title'>
+          <text>选择商品分类</text>
+        </view>
+        <view class='card-content' wx:if='{{componetns===1}}'>
+          <autocompleteadv required class='select-list-box' selectedId='{{postData.p_category_id}}' style='width:{{W/2}}px;' mode='remote' placeholderText='请选择商品一级分类' source='{{source}}' source-url='{{categoryFirSourceUrl}}' bind:item-selected='categorySelectedFir'></autocompleteadv>
+          <autocompleteadv required class='select-list-box' selectedId='{{postData.sub_category_id}}' style='width:{{W/2}}px;border:0px;' mode='remote' placeholderText='请选择商品二级分类' source='{{source}}' source-url='{{categorySecSourceUrl}}' bind:item-selected='categorySelectedSec'></autocompleteadv>
+        </view>
+      </view>
+
+      <view class='card'>
+        <view class='card-title'>
+          <text>设置商品标签</text>
+        </view>
+        <view class='card-content' wx:if='{{componetns===1}}'>
+          <autocompleteadv class='select-list-box' selectedId='{{postData.attrs_1}}' style='width:{{W/3}}px;' mode='remote' source-url='{{attrSourceUrl}}' placeholderText='商品标签1' source='{{source}}' bind:item-selected='tagSelectedFir'></autocompleteadv>
+          <autocompleteadv class='select-list-box' selectedId='{{postData.attrs_2}}' style='width:{{W/3}}px;' mode='remote' source-url='{{attrSourceUrl}}' placeholderText='商品标签2' source='{{source}}' bind:item-selected='tagSelectedSec'></autocompleteadv>
+          <autocompleteadv class='select-list-box' selectedId='{{postData.attrs_3}}' style='width:{{W/3}}px;border:0px;' mode='remote' source-url='{{attrSourceUrl}}' keyword='{{attrSourcrUrl}}' placeholderText='商品标签3' source='{{source}}' bind:item-selected='tagSelectedThir'></autocompleteadv>
+        </view>
+      </view>
+
+      <view class='card'>
+        <view class='card-title'>商品轮播图片(支持最多6张图片，600x600)</view>
+        <view class='card-content' wx:if='{{componetns===1}}'>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.play_pics[0]}}' width="{{W/3-2}}" height='{{W/3-2}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productPlayPicsChanged' data-productpicindex='0' upload-button-text='图1'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.play_pics[1]}}' width="{{W/3-2}}" height='{{W/3-2}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productPlayPicsChanged' data-productpicindex='1' upload-button-text='图2'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.play_pics[2]}}' width="{{W/3-2}}" height='{{W/3-2}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productPlayPicsChanged' data-productpicindex='2' upload-button-text='图3'>
+          </bannerupload>
+        </view>
+
+        <view class='card-content' wx:if='{{componetns===1}}'>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.play_pics[3]}}' width="{{W/3-2}}" height='{{W/3-2}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productPlayPicsChanged' data-productpicindex='3' upload-button-text='图4'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.play_pics[4]}}' width="{{W/3-2}}" height='{{W/3-2}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productPlayPicsChanged' data-productpicindex='4' upload-button-text='图5'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.play_pics[5]}}' width="{{W/3-2}}" height='{{W/3-2}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productPlayPicsChanged' data-productpicindex='5' upload-button-text='图6'>
+          </bannerupload>
+        </view>
+      </view>
+
+      <view class='card'>
+        <view class='card-title'>商品横幅（用于商城首页推荐时展示,最佳比例16:5）</view>
+        <view class='card-content' wx:if='{{componetns===1}}'>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo="{{postData.banner_pic}}" width="{{W}}" height='{{5*W/16}}' mode='scaleToFill' bind:item-changed='bannerChanged' upload-button-text='点击上传（320X100）'>
+          </bannerupload>
+        </view>
+      </view>
+
+      <view class='card'>
+        <view class='card-title'>
+          <text>设置商品价格（元）</text>
+        </view>
+        <view class='card-content'>
+          <input name='originPrice' type='digit' value='{{postData.price[0]}}' maxlength='10' placeholder='商品原价(99.99)' style='width:{{W/2}}px;border-right: 1px solid #ccc;'></input>
+          <input name='discountPrice' type='digit' value='{{postData.price[1]}}' maxlength='10' placeholder='折后价(59.90)' style='width:{{W/2}}px; '></input>
+        </view>
+      </view>
+      <view class='card'>
+        <view class='card-title'>
+          <text>是否参与团购</text>
+          <switch name='togetherSwitch' checked='{{postData.join_together}}' bindchange='togetherSwitch'></switch>
+        </view>
+        <view class='card-content' wx:if='{{togetherinfoshow}}'>
+          <input name='togetherPrice' value='{{postData.together_info.price}}' type='digit' maxlength='10' placeholder='团购价' style='width:{{W/6}}px;border-right: 1px solid #ccc;'></input>
+          <input name='togetherNumber' value='{{postData.together_info.num}}' type='number' maxlength='10' placeholder='团人数' style='width:{{W/6}}px;border-right: 1px solid #ccc;'></input>
+          <input name='togetherHours' value='{{postData.together_info.hour}}' type='number' maxlength='2' placeholder='团购时长(小时)' style='width:{{W/3}}px;border-right: 1px solid #ccc;'></input>
+          <input name='togetherVcount' value='{{postData.together_info.vcount}}' type='number' maxlength='6' placeholder='已团虚拟数(件)' style='width:{{W/3}}px;'></input>
+        </view>
+      </view>
+
+      <view class='card'>
+        <view class='card-title'>商品规格分组</view>
+        <view class='card-content' wx:if='{{componetns===1}}'>
+          <group groups='{{postData.groups}}' deleteImgSrc='/images/delete.png' bind:item-changed='groupChanged' place-holder-title-text='商品规格描述' place-holder-price-fir-text='单购价' place-holder-price-sec-text='团购价'>
+          </group>
+        </view>
+      </view>
+
+
+      <view class='card'>
+        <view class='card-title'>
+          <text>客服联系方式（默认为店铺联系方式）</text>
+        </view>
+        <view class='card-content'>
+          <input name='sellerMobile' type='text' maxlength='50' placeholder='手机号码' style='width:{{W/2}}px;border-right: 1px solid #ccc;'></input>
+          <input name='sellerWx' type='text' maxlength='50' placeholder='微信号' style='width:{{W/2}}px;'></input>
+        </view>
+      </view>
+
+      <view class='card'>
+        <view class='card-title'>
+          <text>商品文字详情</text>
+        </view>
+        <view class='card-content'>
+          <view class='dynamiciput'>
+            <dynamiciput inputs='{{postData.text_details}}' style='width:{{W}}px;' bind:item-changed='productDetailChanged' place-holder-text='请输入商品详情及注意点' class='dynamiciput-item'></dynamiciput>
+          </view>
+        </view>
+      </view>
+
+      <view class='card'>
+        <view class='card-title'>商品图文详情(支持最多12张图片，600x900)</view>
+        <view class='card-content' wx:if='{{componetns===1}}'>
+          <bannerupload deleteImgSrc='/images/delete.png' memo='详情图片1' urlInfo='{{postData.pic_details[0]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='0'
+            upload-button-text='图1'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[1]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='1' upload-button-text='图2'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[2]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='2' upload-button-text='图3'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[3]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='3' upload-button-text='图4'>
+          </bannerupload>
+        </view>
+
+        <view class='card-content'>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[4]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='4' upload-button-text='图5'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[5]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='5' upload-button-text='图6'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[6]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='6' upload-button-text='图7'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[7]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='7' upload-button-text='图8'>
+          </bannerupload>
+        </view>
+
+
+        <view class='card-content'>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[8]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='8' upload-button-text='图9'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[9]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='9' upload-button-text='图10'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[10]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='10' upload-button-text='图11'>
+          </bannerupload>
+          <bannerupload deleteImgSrc='/images/delete.png' urlInfo='{{postData.pic_details[11]}}' width="{{W/4-2}}" height='{{3*W/8}}' mode='scaleToFill' style='border:1px solid #ccc;' bind:item-changed='productDetailPicsChanged' data-productpicindex='11' upload-button-text='图12'>
+          </bannerupload>
+        </view>
+      </view>
+    </view>
+    <view class='blank'></view>
+
+    <view class='fix-bottom'>
+      <view class='wrap-button'>
+        <image src='/images/preview.png'></image>
+        <button plain='{{true}}' form-type='submit'></button>
+        <text>商品预览</text>
+      </view>
+    </view>
+  </form>
+</block>

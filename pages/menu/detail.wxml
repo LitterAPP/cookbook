@@ -1,0 +1,128 @@
+<view class='intro'>
+  <view class='title'>
+    <text>{{menu.menuName}}</text>
+  </view>
+  <view class='userinfo'>
+    <view class='userinfo-left'>
+    <image src='{{user.avatarUrl}}'></image>
+    <text>{{user.nickName}}</text>
+    </view>
+    <image  style='width:30px;height:30px;border-radius:0px;'class='comment-btn' bindtap='showInputBox'  data-menuid='{{menu.id}}' src='/images/comment_btn.png'></image>
+  </view>
+  <image mode='aspectFill' style='width:{{W}}px;height:{{W/2}}px;' src='{{menu.key}}'></image>
+  <view class='introduction'>
+    <text decode='{{true}}' wx:if='{{menu.introduction}}'>&nbsp;&nbsp;&nbsp;&nbsp;{{menu.introduction}}</text>
+  </view>
+</view>
+<block wx:for="{{indexs}}" wx:for-item="i" wx:key='{{id}}'>
+  <view class='swiper-item'>
+    <view class='swiper-item-content' bindtap='cookBookDetail' data-cookbookid='{{list[i*2].bookId}}' hover-class='click-hover'>
+      <image mode='widthFix' style='width:{{W/2-20}}px' src='{{list[i*2].pic}}'></image>
+      <view class='swiper-item-content-1'>
+        <text class='name-text'>{{list[i*2].name}}</text>
+        <image catchtap='deleteOneCookBook' data-cookbookid='{{list[i*2].bookId}}' wx:if='{{list[i*2].bookId && admin}}' src='/images/delete.png'></image>
+      </view>
+      <view class='tag' style='width: {{W/2-20}}px'>
+        <block wx:for='{{list[i*2].tags}}' wx:key='{{id}}'>
+          <text class='tag-text'>{{item.tag}}</text>
+        </block>
+      </view>
+    </view>
+    <view class='swiper-item-content' bindtap='cookBookDetail' data-cookbookid='{{list[i*2+1].bookId}}' hover-class='click-hover'>
+      <image mode='widthFix' style='width:{{W/2-20}}px' src='{{list[i*2+1].pic}}'></image>
+      <view class='swiper-item-content-1'>
+        <text class='name-text'>{{list[i*2+1].name}}</text>
+        <image catchtap='deleteOneCookBook' data-cookbookid='{{list[i*2].bookId}}' wx:if='{{list[i*2+1].bookId && admin}}' src='/images/delete.png'></image>
+      </view>
+      <view class='tag' style='width: {{W/2-20}}px'>
+        <block wx:for='{{list[i*2+1].tags}}' wx:key='{{id}}'>
+          <text class='tag-text'>{{item.tag}}</text>
+        </block>
+      </view>
+    </view>
+  </view>
+</block>
+
+
+
+<!--
+<form bindsubmit='addComment'>
+  <view class='comments'>
+    <input name='comment' placeholder='我说一句，最多50字' maxlength='50' style='width:{{W-100}}px;' value='{{comment}}'></input>
+    <button form-type="submit" type='primary' size='mini'>发表</button>
+  </view>
+</form>
+<block wx:for='{{comments}}' wx:key='{{id}}'>
+  <view class='list-comments'>
+    <image src='{{item.userAvatar}}'></image>
+    <view class='list-comments-content'>
+      <text style='color:#ff8000;font-size:13px;'>{{item.userName}}</text>
+      <text style='color:#2c2c2c;font-size:16px;'>{{item.comment}}</text>
+      <text style='color:#949491;font-size:13px;'>{{item.timeDesc}}</text>
+    </view>
+  </view>
+</block>-->
+
+<view class='comments' style='margin-top:10px;'>
+  <view wx:if='{{favors.length>0}}' class='favor'>
+    <image src='/images/comment_favor.png'></image>
+    <view style='width:{{W-40}}px;'>
+      <text decode='{{true}}' wx:for='{{favors}}' wx:key='{{id}}'>{{item.userName}}&nbsp;</text>
+    </view>
+  </view>
+  <block wx:if='{{comments.length>0}}'>
+    <view class='comment-list' wx:for='{{comments}}' wx:key='{{id}}'>
+      <view class='comment-list-left'>
+        <image wx:if='{{index==0}}' src='/images/comment_icon.png'></image>
+        <image wx:else src=''></image>
+        <view class='comment-list-right'>
+          <image src='{{item.userAvatar}}'></image>
+          <view class='comment-list-right-r' style='width:{{W-70}}px;'>
+            <view class='comment-list-right-r-l'>
+              <text class='comment-list-left-nn'>{{item.userName}}</text>
+              <text class='comment-list-right-text'>{{item.timeDesc}}</text>
+            </view>
+            <text class='comment-list-left-cmt'>{{item.comment}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view  style='display:flex;flex-direction: column;align-content: center;' wx:if='{{nomorecomment && !onloading}}'>
+  <text style='text-align:center;color:#949491;font-size:12px;'>没有更多了~</text>
+</view>
+<view  style='display:flex;flex-direction: column;align-content: center;' wx:if='{{ onloading}}'>
+  <text style='text-align:center;color:#949491;font-size:12px;'>正在加载...</text>
+</view>
+
+<view wx:if='{{admin}}' class='bottom-tips'>
+  <text bindtap='goSearch' style='color:#ccc;font-size:12px; '>点击这里添加菜肴</text>
+</view>
+
+<view class='blank'></view>
+
+<view class='fix-bottom' wx:if='{{showInputBox}}'>
+  <view class='input-box'>
+    <input name='comment' style='width:{{W-60}}px;' confirm-type='send' placeholder='评论' maxlength='100' focus='{{inputfocus}}' bindconfirm='commentSend'></input>
+    <image  wx:if='{{favored}}' src='/images/comment_favored.png' bindtap='favorSend'></image>
+    <image  wx:else src='/images/comment_favor.png' bindtap='favorSend'></image>   
+  </view>
+</view>
+
+<view wx:if='{{indexs && indexs.length>0 && !showInputBox}}' class='fix-bottom'>
+  <view wx:if='{{admin}}' class='wrap-button' bindtap='packMaterial'>
+    <image src='/images/clz.png'></image>
+    <text>打包食材</text>
+  </view>
+  <view class='wrap-button' bindtap='listMaterial'>
+    <image src='/images/clz.png'></image>
+    <text>查看食材</text>
+  </view>
+  <view class='wrap-button'>
+    <image src='/images/zf.png'></image>
+    <button plain='{{true}}' open-type='share'></button>
+    <text>分享好友</text>
+  </view>
+</view>

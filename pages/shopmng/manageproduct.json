@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+     "autocompleteadv": "/components/autocomplete/autocompleteadv"  
+  },
+    "navigationBarBackgroundColor": "#4A708B",
+    "navigationBarTitleText": "我的商品",
+    "navigationBarTextStyle": "withe",
+    "enablePullDownRefresh": true
+}

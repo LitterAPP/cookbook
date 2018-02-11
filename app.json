@@ -1,0 +1,82 @@
+{
+  "pages": [
+    "pages/menu/share",
+    "pages/moment/index",
+    "pages/shop/index",
+    "pages/search/index",
+    "pages/recommend/recommend",
+    "pages/pyq/pyq",
+    "pages/talk/talk",
+    "pages/detail/detail",
+    "pages/index/login",
+    "pages/menu/menu",
+    "pages/menu/detail",
+    "pages/material/list",
+    "pages/search/subject",
+    "pages/test/ayouch",
+    "pages/class/parent",
+    "pages/class/child",
+    "pages/class/list",
+    "pages/space/index",
+    "pages/shop/test",
+    "pages/shop/detail",
+    "pages/shop/pay",
+    "pages/shop/payresult",
+    "pages/shop/orderlist",
+    "pages/space/wallet",
+    "pages/shop/collect",
+    "pages/shop/orderdetail",
+    "pages/callup/index",
+    "pages/shopmng/product",
+    "pages/test/test",
+    "pages/shopmng/manageproduct",
+    "pages/shopmng/apply",
+    "pages/shopmng/deliver"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FF8000",
+    "navigationBarTitleText": "知味Tasty",
+    "navigationBarTextStyle": "light"
+  },
+  "tabBar": {
+    "backgroundColor": "#FFFFFF",
+    "color": "#949491",
+    "selectedColor": "#FF8000",
+    "list": [
+      {
+        "pagePath": "pages/menu/share",
+        "text": "动态",
+        "iconPath": "/images/dt_0.png",
+        "selectedIconPath": "/images/dt_1.png"
+      },
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "推荐",
+        "iconPath": "/images/recommend_bar_0.png",
+        "selectedIconPath": "/images/recommend_bar_1.png"
+      },
+      {
+        "pagePath": "pages/shop/index",
+        "text": "商城",
+        "iconPath": "/images/shop-bar.png",
+        "selectedIconPath": "/images/shop-bar.png"
+      },
+      {
+        "pagePath": "pages/class/parent",
+        "text": "分类",
+        "iconPath": "/images/fl_0.png",
+        "selectedIconPath": "/images/fl_1.png"
+      },
+      {
+        "pagePath": "pages/space/index",
+        "text": "我的",
+        "iconPath": "/images/my_icon_0.png",
+        "selectedIconPath": "/images/my_icon_1.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "downloadFile": 10000
+  }
+}

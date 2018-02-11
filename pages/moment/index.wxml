@@ -1,0 +1,16 @@
+<form bindsubmit='sendMoment' bindreset='reset'>
+  <view class='text'>
+    <textarea focus='{{true}}' style='height:80px;font-size:15px;width:{{W-20}}px;margin:10px 10px;padding-left:10px;padding-top:10px;' name='introduction' placeholder="这一刻的美味..." />
+  </view>
+
+  <view wx:if='{{pics && pics.length>0}}' class='photos-row'>
+    <block wx:for='{{pics}}' wx:key='{{id}}'>
+      <image bindtap='addPhoto' wx:if="{{item==='/images/add_menu.png'}}" mode='center' style='height:{{(W-35)/4}}px;width:{{(W-35)/4}}px;' src='{{item}}'></image>
+      <image bindtap='previewPhoto' data-index='{{index}}' wx:else mode='aspectFill' style='height:{{(W-35)/4}}px;width:{{(W-35)/4}}px;' src='{{item}}'></image>
+    </block>
+  </view>
+  <view class='send-btn'>
+    <button form-type="submit" type='warn' size='mini' >发 表</button>
+    <button form-type="reset" type='default' size='mini'  >取 消</button>
+  </view>
+</form>

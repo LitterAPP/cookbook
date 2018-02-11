@@ -1,0 +1,22 @@
+<!--pages/shopmng/manageproduct.wxml-->
+<view class='add'>
+  <image catchtap='addProduct' src='/images/add.png'></image>
+  <text> 上新</text>
+</view>
+<view class='search'>
+  <input type='text' value='{{keyword}}' bindblur='keywordinput' placeholder='请输入商品名'></input>
+  <view class='select-list'>
+    <autocompleteadv class='select-list-box' selectedId='{{statusSelectedId}}' style='width:{{W/4}}px;border-left:1px solid #ccc;border-right:1px solid #ccc;' bind:item-selected='statuSelected' mode='remote' placeholderText='状态' source-url='{{statusSourceUrl}}'></autocompleteadv>
+  </view>
+  <view catchtap='searchProductList' class='searchBtn' hover-class='click-hover'>搜索</view>
+</view>
+<view class='list-item' hover-class='click-hover' catchtap='itemClick' data-productid='{{item.productId}}'  wx:for='{{list}}' wx:key='{{id}}'>
+  <text  style='margin-left:5px;font-size:12px;color:#fff;border-radius:10px;padding:3px;background:#9ACD32;' wx:if='{{item.status==1}}'>上架</text>
+  <text style="margin-left:5px;font-size:12px;color:#fff;border-radius:10px;padding:3px;background:#FF4040;" wx:if='{{item.status==0}}'>预览</text>
+  <text style="margin-left:5px;font-size:12px;color:#fff;border-radius:10px;padding:3px;background:#CDC5BF;" wx:if='{{item.status==2}}'>下架</text>
+  <view class='item' >
+    <text style='width:{{W-80}}px;'>{{item.produtName}}</text>
+    <text style='font-size:13px;color:#ccc;'>{{item.createTime}}</text>
+  </view>
+  <image src='/images/arrow-right.png'></image>
+</view>

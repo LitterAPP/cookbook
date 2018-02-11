@@ -1,0 +1,96 @@
+page{
+  background: #FF8000;
+  overflow: hidden;
+}
+.login-container{   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+.logo image{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid #fff;  
+}
+
+.login-input{
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.7);
+  margin-top:70px;
+  margin-left: 10px;
+  margin-right: 10px; 
+}
+
+.mobile{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px dotted #fff;
+}
+.smscode{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;  
+}
+.smscode text{
+  width: 100px;
+  font-size: 13px;
+  color: #515151;
+  text-align: center;
+}
+input{
+  height: 50px;    
+  font-size: 15px;
+  width: 100%;
+  padding-left: 12px;
+  color: #B8811B;
+}
+
+.login-button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 10px;
+}
+
+button{
+  width: 100%;
+  border-radius: 0px;
+}
+
+.line{
+  display: flex;
+  flex-direction: row; 
+  border-top: 1px  solid #fff; 
+  align-items: center; 
+  justify-content: flex-end;
+}
+.line text{ 
+  color: #fff; 
+  text-align: right;
+  font-size: 14px; 
+  margin-right:2px; 
+}
+.login-bottom{
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
+.login-bottom text{
+  font-size: 13px;
+  color: #fbfbf7;
+}

@@ -1,0 +1,49 @@
+<!--pages/menu/menu.wxml-->
+<view class='newMenu'>
+  <image wx:if='{{showInput==0}}' bindtap='showMenuInput' src='/images/add_menu.png'> </image>
+  <form bindsubmit='addMenu' bindreset='reset'>
+    <view wx:if='{{showInput==1}}' class='newMenu-input'>
+      <input  style='width:{{W}}px;background:#e6e6e6;margin-bottom:10px;padding-left:10px;' name='menuName' placeholder='请输入菜单标题描述，最多100字' maxlength='100' value=''></input>
+      <textarea style='width:{{W}}px;background:#e6e6e6;margin-bottom:10px;padding-left:10px;padding-top:10px;' name='introduction'   placeholder="请给此菜单增添导语，非必填，但保存后暂不支持编辑操作，请尽量输入相关导语，使你的菜单更受用户的欢迎！" />
+      <view class='upload-container' style='width:{{W}}px;height:{{W/2}}px;'>
+        <image wx:if='{{uploadBanner}}' mode='center' style='width:{{W}}px;height:{{W/2}}px;' src='{{uploadBanner}}'></image>
+        <view wx:else class='upload-banner' bindtap='uploadBanner'>
+          <image src='/images/add_menu.png'></image>
+          <text>上传横幅(300X200最佳)</text>
+        </view>
+      </view>
+
+      <view style='margin:15px 10px;'>
+        <button form-type="submit" type='primary' size='mini'>创建菜单</button>
+        <button form-type="reset" type='default' size='mini'>取消</button>
+      </view>
+    </view>
+
+  </form>
+</view>
+
+<view wx:if='{{showInput==0}}' wx:for='{{menuList}}' wx:key='{{id}}' bindlongtap='showDelete' data-menuId='{{item.id}}' class='menu-item'>
+  <image style='position: absolute;' mode='aspectFill' style='width:{{W}}px;height:{{W/2}}px;' src='{{item.banner}}'></image>
+  <view style='position: absolute;top:0px;background:rgba(255,255,255,0.4);width:{{W}}px;padding:2px;'>
+    <text style='color:#2c2c2c;font-size:22px;font-weight:blod;'>{{item.menuName}}</text>
+  </view>
+  <view style='position: absolute;bottom:10px;right:0px;' wx:if='{{showDelete!=1}}'>
+    <text style='color:#fff;' wx:if='{{cookBookId}}' catchtap='addInMenu' data-menuId='{{item.id}}' class='join'>点击加入</text>
+    <text catchtap='lookMenu' data-menuId='{{item.id}}' class='cancel'>点击查看</text>
+  </view>
+  <view style='position: absolute;bottom:10px;right:0px;' wx:if='{{showDelete==1}}'>
+    <text style='color:#fff;' catchtap='deleteMenu' data-menuId='{{item.id}}' class='delete'>点击删除</text>
+    <text catchtap='cancelMenu' class='cancel'>点击取消</text>
+  </view>
+
+  <view style='position: absolute;bottom:5px;left:5px;;background:rgba(255,255,255,0.5);width:90px;border-radius:0px; text-align: center;'>
+    <text style='height:25px;line-height:25px; color:#2c2c2c;font-size:13px;'>共有({{item.count}}道菜)</text>
+  </view>
+</view>
+
+<view wx:if='{{menuList && menuList.length>0}}' class='newMenu'>
+  <text wx:if='{{showInput==0}}' style='color:#ccc;font-size:10px;'>长按菜单项可删除菜单</text>
+</view>
+<view wx:else class='bottom-tips'>
+  <text style='color:#ccc;font-size:15px; '>还没有创建菜单，点击+创建吧</text>
+</view>

@@ -1,0 +1,10 @@
+{ 
+  "usingComponents": {
+    "smscode": "/components/smscode/smscode",
+    "bannerupload": "/components/bannerupload/bannerupload"
+  },
+  "navigationBarBackgroundColor": "#4A708B",
+  "navigationBarTitleText": "递交资料",
+  "navigationBarTextStyle": "withe",
+  "enablePullDownRefresh": false
+}

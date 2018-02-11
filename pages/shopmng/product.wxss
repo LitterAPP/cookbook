@@ -1,0 +1,70 @@
+.container{
+  
+}
+.card{
+  margin-top: 10px;
+}
+.card-title{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2px 5px; 
+}
+.card-title text{
+  color: #666;
+  font-size: 12px;
+}
+.card-content{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+}
+.card-content input{
+  height: 35px;
+  padding: 0px 5px;
+  color: #000;
+  /*border: 1px solid #CCC;*/
+ 
+}
+.card-content group{
+  width: 100%;
+  margin: 5px 5px;
+}
+.card-content-required{
+  font-size: 12px;
+  color: red;
+  width: 10px;
+  text-align: center;
+}
+
+.select-list-box{ 
+  border-right: 1px solid #ccc;
+}
+
+.dynamiciput-item{
+  width: 80%;
+  background: #fff;
+}
+
+.dynamiciput{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.picker{
+  background: #fff;
+  height: 35px;
+  width: 50px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 10px;
+  margin-right:5px; 
+  color: #000;
+}

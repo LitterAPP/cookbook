@@ -1,0 +1,73 @@
+<view class='search'>
+  <view class='search-icon'>
+    <image src='/images/search_bar_0.png'></image>
+  </view>
+  <input style='width:{{W-100}}px;' placeholder='搜索你想要的食谱' confirm-type='search' bindconfirm='search'  confirm-type='search' bindconfirm='search' value='{{key}}'></input>
+  <view catchtap='clearText' class='clear-icon'>
+    <image src='/images/clear.png'></image>
+  </view>
+</view>
+<view class='tab-bar'>
+  <text wx:if='{{bar==1}}' bindtap='barChanged' data-bar='1' class='tab-bar-on'>热门搜索</text>
+  <text wx:else bindtap='barChanged' data-bar='1' class='tab-bar-off'>热门食谱</text>
+  <text wx:if='{{bar==2}}' bindtap='barChanged' data-bar='2' class='tab-bar-on'>新鲜专题</text>
+  <text wx:else bindtap='barChanged' data-bar='2' class='tab-bar-off'>新鲜专题</text>
+  <text wx:if='{{bar==3}}' bindtap='barChanged' data-bar='3' class='tab-bar-on'>拍照搜索</text>
+  <text wx:else bindtap='barChanged' data-bar='3' class='tab-bar-off'>拍照搜索</text>
+</view>
+<view class='hotsearch-container' wx:if='{{bar==1 && !searched}}'>
+  <view class='hotkey'>
+    <text bindtap='searchText' data-key='{{item}}' wx:for='{{hotKeys}}' wx:key='{{id}}'>{{item}}</text>
+  </view>
+  <view class='history-bar'>
+    <text style='color:#000;'>历史记录</text>
+    <text bindtap='cleanHisKey' style='padding:5px;'>清空</text>
+  </view>
+
+  <view class='hotkey'>
+    <text bindtap='searchText' data-key='{{item}}' wx:for='{{hisKey}}' wx:key='{{id}}'>{{item}}</text>
+  </view>
+</view>
+
+<view wx:if='{{bar==1 && searched}}' class='ai-recmd'>
+  <block wx:for='{{aiData.list}}' wx:key='{{id}}'>
+    <view class='ai-recmd-more-list'>
+      <view bindtap='cookBookDetail' class='ai-recmd-more-list-content' data-cookbookid='{{item.bookId}}' hover-class='click-hover'>
+        <image mode='aspectFit' style='width:80px;height:80px;' src='{{item.pic}}'></image>
+        <view class='ai-recmd-more-list-content-1'>
+          <text class='name-text'>{{item.name}}</text>
+          <view class='tag' style='width:{{W-145}}px;'>
+            <block wx:for='{{item.tags}}' wx:for-item='tag' wx:key='{{id}}'>
+              <text class='tag-text'>{{tag.tag}}</text>
+            </block>
+          </view>
+        </view>
+        <image style='width:30px;height:30px;  position: absolute;right:10px;' src='/images/arrow-right.png'></image>
+      </view>
+    </view>
+  </block>
+</view>
+<!--style="background-image:url('{{item.bgPicUrl}}');background-repeat:no-repeat;background-size: cover;  background-position:center;"-->
+<view wx:if='{{bar==2}}' class='subject'>
+  <block wx:for='{{subjects}}' wx:key='{{id}}'>
+    <view class='subject-item' bindtap='subjectDetail' data-subjectid='{{item.id}}' data-title='{{item.title}}'  style="background-image:url('{{item.bgPicUrl}}');background-repeat:no-repeat;background-size: cover;  background-position:center;">
+      <text>{{item.title}}</text>
+      <text style='color:#fff; font-size: 14px;height:100%; border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;'>{{item.subTitle}}</text>
+    </view>
+  </block>
+</view>
+
+<view wx:if='{{bar==3}}' class='bar-3'>
+  <view class='bar-3-button' wx:if='{{showPhotoButton==1}}'>
+    <image bindtap='uploadPhoto' src='/images/photo.png'> </image>
+    <text>上传图片</text>
+  </view>
+  <block wx:else >
+    <view class='bar-3-item' bindtap='picResultSearch'  wx:for='{{picSearchResult}}' wx:key='{{id}}' data-key='{{item.name}}'>
+      <text>{{item.name}}</text>
+      <text>卡路里：{{item.calorie}}/100g</text>
+      <text>可信度：{{item.probability}}</text>
+    </view>
+  </block>
+
+</view>

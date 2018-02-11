@@ -1,0 +1,27 @@
+.class-table{
+  display: flex;
+  flex-direction: column; 
+  align-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.class-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content:center;
+  width: 100%;
+  justify-content:  flex-start;
+  border-bottom: 1px dotted #ccc;
+}
+.class-cl{ 
+  display: flex;
+  flex-direction: column;   
+  align-content: center;
+  align-items: center; 
+  padding: 10px 0px;
+}
+.class-cl  text{
+  color: #8a8a8a;
+  font-size: 13px;
+}

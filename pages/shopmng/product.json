@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "bannerupload": "/components/bannerupload/bannerupload",
+    "autocompleteadv": "/components/autocomplete/autocompleteadv",
+    "dynamiciput": "/components/dynamiciput/dynamiciput",
+    "group": "/components/productgroup/group"
+  },
+  "navigationBarBackgroundColor": "#4A708B",
+  "navigationBarTitleText": "商品新增/编辑",
+  "navigationBarTextStyle": "withe",
+  "enablePullDownRefresh": false
+}

@@ -1,0 +1,80 @@
+<view class='header'>
+  <view class='userinfo'>
+    <image wx:if="{{userinfo.avatarUrl===''}}" src='/images/icon_cx.png'></image>
+    <image wx:else src='{{userinfo.avatarUrl}}'></image>
+    <text bindtap='authorize' wx:if="{{userinfo.nickName==='默认'}}">微信未授权,点击授权</text>
+    <text wx:else>{{userinfo.nickName}}</text>
+  </view>
+</view>
+
+<view class='item-nav'>
+  <view class='item' style='margin-bottom:1px;' hover-class='click-hover' bindtap='goMyOrder'>
+    <view class='left'>
+      <image src='/images/dd.png'></image>
+      <text>我的订单</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+  <view class='item' style='margin-bottom:10px;' hover-stop-propagation='{{true}}' hover-class='click-hover' bindtap='goMyWallet'>
+    <view class='left'>
+      <image src='/images/qb.png'></image>
+      <text>我的钱包</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+  <!--
+    <view class='item' style='margin-bottom:1px;'  hover-class='click-hover' bindtap='goMyCollected'>
+    <view class='left'>
+      <image src='/images/sc.png'></image>
+      <text>我的收藏商品</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+  -->
+  <view class='item' style='margin-bottom:1px;' hover-class='click-hover' bindtap='goManageProduct'>
+    <view class='left'>
+      <image src='/images/spgl1.png'></image>
+      <text>我的商品</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+  <view class='item' style='margin-bottom:1px;' hover-class='click-hover' bindtap='goApplyProduct'>
+    <view class='left'>
+      <image src='/images/apply.png'></image>
+      <text>发放优惠券（未开放）</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+
+  <view class='item' style='margin-bottom:10px;' hover-class='click-hover' bindtap='goApplyProduct'>
+    <view class='left'>
+      <image src='/images/apply.png'></image>
+      <text>申请开店</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+
+  <view class='item' hover-class='click-hover' bindtap='goMenu'>
+    <view class='left'>
+      <image src='/images/menu_icon.png'></image>
+      <text>我的菜单</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+
+  <view class='item' hover-class='click-hover' bindtap='goAyouch'>
+    <view class='left'>
+      <image src='/images/tl.png'></image>
+      <text>吃货趣味测试</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+
+  <view class='item' bindtap='goDongTatBar' hover-class='click-hover' style='margin-top:10px;'>
+    <view class='left'>
+      <image src='/images/dt_1.png'></image>
+      <text>动态</text>
+    </view>
+    <image src='/images/arrow-right.png'></image>
+  </view>
+</view>

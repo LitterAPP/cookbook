@@ -1,0 +1,95 @@
+.banner{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.text{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0px;
+  background: rgba(0, 0, 0, 0.6); 
+}
+
+.text text{
+  color: #fff;
+  font-size: 12px;
+  padding: 2px;
+}
+.title{ 
+  font-weight: bold;
+  color: yellow;
+}
+
+.question{
+   display: flex;
+   flex-direction: column;
+}
+
+.question text{
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  padding: 20px;
+}
+
+.option{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.option image{
+  width: 30px;
+  height: 30px;
+}
+
+.result{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}
+.result image{
+  width: 60px;
+  height: 60px;
+}
+.result-title{ 
+   display: flex;
+  flex-direction:row;
+  align-items: center;
+}
+
+.start{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.start image{
+  width: 30px;
+  height: 30px;
+}
+
+.detail{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px;
+}
+
+.qrcode{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10px; 
+  left: 50%;
+  margin-left:-74px;
+}
+
+.qrcode image{
+  width: 120px;
+  height: 120px;
+}

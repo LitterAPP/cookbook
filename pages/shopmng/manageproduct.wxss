@@ -1,0 +1,82 @@
+.add{
+ display: flex;
+ flex-direction: row;
+ align-content: center;
+ align-items: center; 
+ justify-content: center;
+ margin: 5px;
+}
+.add image{
+  height: 35px;
+  width: 35px;
+}
+.add text{
+  color: #666;
+  font-size: 13px;
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0 5px;
+}
+.select-list image{
+  height: 30px;
+  width: 30px;
+}
+.select-list{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content:  center;
+  background: #fff;
+  padding: 0 5px;
+}
+.search input{
+ 
+}
+.searchBtn{
+  display: inline-block;
+  width: 40px; 
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: #666;
+  border:1px solid #ccc;
+  border-radius: 15px;
+}
+.list-item{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  height: 45px; 
+  border-top: 1px solid #ccc;
+}
+
+.list-item image{
+  height: 30px;
+  width: 30px;
+}
+.item{
+  display: flex;
+  flex-direction: column; 
+}
+.item text{
+    font-size: 15px;
+    color: #000;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow: hidden;
+}
+
+.click-hover{
+  background: #F3F3F7;
+}

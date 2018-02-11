@@ -1,0 +1,71 @@
+<view class='banner'>
+  <image mode='center' style='width:{{W}}px;height:150px;' src='/images/timg.png'></image>
+  <view class='text'>
+    <text style='font-size: 20px;color:yellow;'>叫你一声“吃货”，你敢应吗?</text>
+    <text>吃货就是行驶在生命长河的小火车：逛----吃，逛----吃，逛----吃，逛吃逛吃逛吃逛吃逛吃......不是在吃，就是在吃的路上，吾生有涯，而吃也无涯！</text>
+  </view>
+</view>
+<view wx:if='{{currentNum>=0}}' class='question'>
+  <text>{{list[currentNum].title}}</text>
+  <view class='option'>
+    <view class='yesno' bindtap='yes'>
+      <image wx:if='{{currentReply==1}}' src='/images/yes_1.png'></image>
+      <image wx:else src='/images/yes_0.png'></image>
+      <image src='/images/yes_text.png'></image>
+    </view>
+    <view class='yesno' bindtap='no'>
+      <image wx:if='{{currentReply==0}}' src='/images/no_1.png'></image>
+      <image wx:else src='/images/no_0.png'></image>
+      <image src='/images/no_text.png'></image>
+    </view>
+  </view>
+</view>
+<view wx:else class='result'>
+  <view class='result-title'>
+    <image src='/images/eat.png'></image>
+    <text  style='font-weight:blod;font-size:20px;'>@{{userinfo.nickName}}的测试报告</text>
+  </view>
+  <view>
+    <view wx:if='{{currentNum==-1}}' class='start'>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+    </view>
+    <view wx:if='{{currentNum==-2}}' class='start'>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_0.png'></image>
+    </view>
+    <view wx:if='{{currentNum==-3}}' class='start'>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_0.png'></image>
+      <image src='/images/start_0.png'></image>
+    </view>
+    <view wx:if='{{currentNum==-4}}' class='start'>
+      <image src='/images/start_1.png'></image>
+      <image src='/images/start_0.png'></image>
+      <image src='/images/start_0.png'></image>
+      <image src='/images/start_0.png'></image>
+      <image src='/images/start_0.png'></image>
+    </view>
+  </view>
+  <view class='detail'> 
+    <text style='font-size:15px;' decode='{{true}}' >&nbsp;&nbsp;&nbsp;&nbsp;击败{{defat}}%吃货！你属于{{result[currentNum*-1 -1].content}}</text>
+  </view>
+  
+</view>
+<!--wx:if='{{currentNum<0}}' -->
+<view  wx:if='{{currentNum<0}}' class='qrcode' style='margin-left:-102px;'>
+  <image mode='aspectFit' src='/images/ayouch_qrcode.png'></image>
+  <text style='font-size:12px;color:#949491;'>截屏分享朋友圈，看看好友是几级吃货</text> 
+</view>
+<view  wx:else class='qrcode' style='margin-left:-116px;'>
+  <image mode='aspectFit' src='/images/qrcode.jpg'></image> 
+  <text style='font-size:12px;color:#949491;'>微信小程序搜索“知味Tasty”发现更多美食</text>
+</view>

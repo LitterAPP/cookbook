@@ -1,0 +1,43 @@
+<!--pages/shopmng/apply.wxml-->
+<form bindsubmit='applay'>
+  <!--
+<view style='background:#fff;margin-top:5px;'>
+  <text style='margin-left:5px;font-size:13px;color:#ccc;'>营业执照</text>
+  <bannerupload deleteImgSrc='/images/delete.png'    upload-button-text='上传营业执照' bind:item-changed='cardFrontChanged' ></bannerupload>
+</view>
+-->
+  <view style='background:#fff;margin-top:5px;'>
+    <text style='margin-left:5px;font-size:13px;color:#ccc;'>身份证正面</text>
+    <bannerupload  wx:if='{{pageshow}}' admin='{{!isSeller}}' deleteImgSrc='/images/delete.png' upload-button-text='上传身份证正面' urlInfo='{{frontCard}}' bind:item-changed='cardFrontChanged'></bannerupload>
+  </view>
+
+  <view style='background:#fff;margin-top:5px;'>
+    <text style='margin-left:5px;font-size:13px;color:#ccc;'>身份证反面</text>
+    <bannerupload wx:if='{{pageshow}}'  admin='{{!isSeller}}' deleteImgSrc='/images/delete.png' upload-button-text='上传身份证反面' urlInfo='{{backCard}}'  bind:item-changed='cardBackChanged'></bannerupload>
+
+  </view>
+  <view style='background:#fff;margin-top:5px;'>
+    <text style='margin-left:5px;font-size:13px;color:#ccc;'>手机验证</text>
+    <view class='sms-code' wx:if='{{!isSeller}}'>
+      <smscode bind:smscode-blur='smscodeBlur' mobile='{{smsCode.mobile}}' send-url='{{sendUrl}}'></smscode>
+    </view>
+     <view class='sms-code' wx:else>
+      <input type='text' disabled='{{isSeller}}' value='{{mobile}}' />
+    </view>
+  </view>
+
+  <view style='background:#fff;margin-top:5px;padding-bottom:5px;'>
+    <text style='margin-left:5px;font-size:13px;color:#ccc;'>微信号 （管理员将通过微信联系核实信息）</text>
+    <input name='sellerWx'  disabled='{{isSeller}}' style='padding:5px;border-bottom:1px solid #ccc;' type='text' value='{{sellerWx}}' placeholder='请输入微信号'></input>
+  </view>
+
+  <view class='protocol' style='background:#fff;margin-top:5px;padding-bottom:5px;'>
+    <radio style='margin-left:5px;font-size:13px;' value="1" checked="{{true}}" />协议
+    <view class='protocol-1'>
+      <text style='margin-left:5px;font-size:13px;color:#ccc;'>费用：平台将取每笔交易的2%</text>
+      <text style='margin-left:5px;font-size:13px;color:#ccc;'>结算方式：月结</text>
+    </view>
+  </view>
+
+  <button wx:if='{{!isSeller}}' style='margin-top:15px;' type='primary' form-type='submit'>提交</button>
+</form>

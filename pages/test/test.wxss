@@ -1,0 +1,47 @@
+/* pages/test/test.wxss */
+.autocomplete{
+  background: red;
+
+}
+
+.autocomplete input{
+  background: beige;
+}
+
+.select-list{
+  display: flex;
+  flex-direction: row;
+  justify-content:  space-between;
+  align-content: center;
+  align-items: center;
+}
+.select-list-box{
+  width: 200px;
+  background: #fff;
+  margin: 10px;
+}
+
+.dynamiciput-item{
+  width: 80%;
+  background: #fff;
+}
+
+.dynamiciput{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.group{
+   display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.group-item{
+  margin-top:10px; 
+  width: 100%;
+  background: #fff;
+}

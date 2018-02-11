@@ -1,0 +1,5 @@
+  {
+    "navigationBarTitleText": "发现动态",
+    "navigationBarTextStyle": "light",
+    "enablePullDownRefresh":true
+  }
